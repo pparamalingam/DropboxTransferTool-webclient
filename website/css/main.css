@@ -11,6 +11,10 @@
   h3{
   	font-size: 22px;
   }
+  .btn-lg{
+    border-radius:0;
+  background-color: #1e88e5;
+}
 .navbar-default {
   background-color: #2196f3;
   border-color: #1976d2;
