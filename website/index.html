@@ -52,29 +52,6 @@
     		<div class="col-6"><h3>Step 2: Click the DropBox button to select the photos you want to transfer</h3></div>
 			<!--<div><input type="dropbox-chooser" name="selected-file" id="dp-chooser" data-link-type="direct" class="hide" /></div>-->
  			<button type="button" class="btn btn-primary btn-lg" id="db-button">Select Photos</button>
- 		<script>
-    var linksArray = new Array();
-    var jsonLinks={title: "DropboxTransferTool Data",
-    description: "Bunch of dropbox links",
-    items:[]
-};
-    	document.getElementById("db-button").onclick = function () {
-        Dropbox.choose({
-            linkType: "direct",
-            success: function (files) {
-            	for(var i in files) {
-                var item = files[i];
-             jsonLinks.items.push({ 
-                  "link" : item.link,   });
-        }
-            }, cancel(){},
-            multiselect:true,
-            extensions:['video','images'] });
-		    };
-        if(jsonLinks.items.length >0)
-          JSON.stringify(jsonLinks);
-
-		</script>
         </div>
     	<div class="row">
     		<div class="col-12"><h3>Step 3: Your Done!</h3><a href="https://photos.google.com/">Vist your Google Photos to check it out </a> </div>
@@ -86,5 +63,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="l734mvz3b7jzx8t"></script>
+    <script src="js/helper.js"></script>
   </body>
 </html>
