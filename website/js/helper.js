@@ -19,10 +19,10 @@
         if(jsonLinks.items.length >0){
           JSON.stringify(jsonLinks);
         }
-//var url = window.location.pathname;
-var url = 'https://accounts.google.com/o/oauth2/auth?response_type=token&client_id=662147109054-0k37pvm818fjdr06emtuldcsaihlde9i.apps.googleusercontent.com&redirect_uri=https:localhost:8001=https://picasaweb.google.com/data/'
-var token = url.substring(url.lastIndexOf('id=')+3);
-var urlJunk = token.substring(token.lastIndexOf('.apps')).length;
+var url = window.location.pathname;
+//var url ='http://dbtestapp.tk/#access_token=ya29.igHX4GPRTO6W8ilvcg9jcl1QK-QMQvuJf4knZJHok51JqK5ttAN3Sre-ao15uog2hQL38fLfqaJSqg&token_type=Bearer&expires_in=3600'
+var token = url.substring(url.lastIndexOf('access_token')+13);
+var urlJunk = token.substring(token.lastIndexOf('&token_type')).length;
 token = token.slice(0,token.length-urlJunk);
 console.log(token);
 
