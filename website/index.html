@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <title>DropToPhotos</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -40,21 +43,37 @@
     <div class="container">
     <div class="grid">
     	<div class="row">
-    		<div class="col-12"><h1> Transfer Your Photos from DropBox to Google Photos with 1 button!</h1></div>
+    		<div class="col-md-12"><h1> Transfer Your Photos and Videos from DropBox to Google Photos with 1 button!</h1></div>
     	</div>
     	<div class="row">
-    		<div class="col-12"><p>Take advantage of Google Photos new unlimited storage feature to keep all your photos in the cloud, use Photos awsome new features, and free up some DropBox space!</p></div>
+    		<div class="col-md-12"><p>Take advantage of Google Photos new unlimited storage feature to keep all your photos in the cloud, use Photos awsome new features, and free up some DropBox space!</p></div>
     	</div>
     	<div class="row">
-    		<div class="col-6"><h3>Step 1: Log into your Google Account</h3></div>
-    	</div>
+    		<div class="col-md-12"><h3>Log into your Google Account</h3>
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log("Name: " + profile.getName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      };
+    </script></div>
+      </div>
     	<div class="row">
-    		<div class="col-6"><h3>Step 2: Click the DropBox button to select the photos you want to transfer</h3></div>
+    		<div class="col-md-12"><h3>Select the Photos from Dropbox to move</h3>
 			<!--<div><input type="dropbox-chooser" name="selected-file" id="dp-chooser" data-link-type="direct" class="hide" /></div>-->
- 			<button type="button" class="btn btn-primary btn-lg" id="db-button">Select Photos</button>
+ 			<button type="button" class="btn btn-primary btn-lg" id="db-button"><img src="images/dropboxlogo2.png" height="20px" ></button>
+        </div>
         </div>
     	<div class="row">
-    		<div class="col-12"><h3>Step 3: Your Done!</h3><a href="https://photos.google.com/">Vist your Google Photos to check it out </a> </div>
+    		<div class="col-md-12"><h3>Step 3: Your Done!</h3><a href="https://photos.google.com/">Vist your Google Photos to check it out </a> </div>
     	</div>
     </div>
     </div>
