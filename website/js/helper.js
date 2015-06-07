@@ -9,8 +9,9 @@ request.onload = function(){
     var data   = request.responseText;
 }
 request.open('POST','http://requestb.in/ru17yvru',true);
-request.setRequestHeader("Content-type", "application/json;charset=UTF-8");
-request.setRequestHeader("Access-Control-Allow-Origin", "http://dbtestapp.tk");
+//request.setRequestHeader("Access-Control-Allow-Origin", "*");
+//request.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+
 document.getElementById("db-button").onclick = function () {
 Dropbox.choose({
     linkType: "direct",
@@ -20,16 +21,15 @@ Dropbox.choose({
      jsonLinks.items.push({ 
           "link" : item.link,   });
     }
-   JSON.stringify(jsonLinks);
-    console.log(jsonLinks);
-    request.send(jsonLinks);
+    console.log(JSON.stringify(jsonLinks));
+    request.send(JSON.stringify(jsonLinks));
+    $('#db-button').prop('disabled', true);
     }, cancel(){},
     multiselect:true,
     extensions:['video','images'] });
     };
        
 var url = window.location.href;
-//var url ='http://dbtestapp.tk/#access_token=ya29.igHX4GPRTO6W8ilvcg9jcl1QK-QMQvuJf4knZJHok51JqK5ttAN3Sre-ao15uog2hQL38fLfqaJSqg&token_type=Bearer&expires_in=3600'
 var token = url.substring(url.lastIndexOf('access_token')+13);
 var urlJunk = token.substring(token.lastIndexOf('&token_type')).length;
 token = token.slice(0,token.length-urlJunk);
