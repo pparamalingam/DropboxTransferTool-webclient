@@ -8,10 +8,15 @@ request.onload = function(){
     var status = request.status;
     var data   = request.responseText;
 }
-request.open('POST','http://requestb.in/ru17yvru',true);
+request.open('POST','fillin',true);
 //request.setRequestHeader("Access-Control-Allow-Origin", "*");
 //request.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+function dropboxSucess(){
+    $('#db-button').prop('disabled', true);
+    $('#db-button').css('background-color','#00C853');
+    $('#db-success-alert').fadeIn();
 
+}
 document.getElementById("db-button").onclick = function () {
 Dropbox.choose({
     linkType: "direct",
@@ -23,7 +28,7 @@ Dropbox.choose({
     }
     console.log(JSON.stringify(jsonLinks));
     request.send(JSON.stringify(jsonLinks));
-    $('#db-button').prop('disabled', true);
+    dropboxSucess();
     }, cancel(){},
     multiselect:true,
     extensions:['video','images'] });

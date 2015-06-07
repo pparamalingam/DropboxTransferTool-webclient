@@ -3,14 +3,29 @@
  }
  body {
     padding-top: 60px;
-    background-color:#eeeeee
+    background-color:#fafafa
   }
   h1{
   	font-size:30px;
+    opacity: .87;
   }
   h3{
   	font-size: 22px;
+    opacity: .87;
+
   }
+  p{
+    opacity: .65;
+  }
+
+  #db-success-alert{
+
+    padding-bottom: 9px;
+    padding-top: 10px;
+    display: none;
+
+  }
+  
   .btn-lg{
     border-radius:0;
   background-color: #1e88e5;
