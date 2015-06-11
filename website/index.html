@@ -68,7 +68,7 @@
       </div>
     	<div class="row">
     		<div class="col-md-6"><h3>Select the Photos from Dropbox to move</h3>
-        <div class="col-md-6"> <div id="result"></div>
+        <div class="col-md-6">
 
 </div>
         </div>
@@ -102,15 +102,10 @@
       <script src="/js/pace.min.js"></script>
     <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="l734mvz3b7jzx8t"></script>
     <script src="js/helper.js"></script>
-    <script>
-if(typeof(EventSource) !== "undefined") {
-    var source = new EventSource("test.php");
-    source.onmessage = function(event) {
-        document.getElementById("result").innerHTML += event.data + "<br>";
-    };
-} else {
-    document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
-}
+<script>
+      $.get( "test.php", function( data ) {
+        document.getElementById("result").innerHTML += data + "<br>";
+      });
 </script>
 
 <script type="text/javascript">
@@ -122,5 +117,6 @@ if(typeof(EventSource) !== "undefined") {
      }
  }
 </script>
+<div id="result"></div>
   </body>
 </html>
