@@ -15,8 +15,19 @@ function dropboxSucess(){
     $('#db-button').prop('disabled', true);
     $('#db-button').css('background-color','#00C853');
     $('#db-success-alert').fadeIn();
-
 }
+//  $('.progress-bar').css('width', valeur+'%').attr('aria-valuenow', valeur);    
+
+var image = new Image();
+function getThumbnails(){
+    
+    image.src=thumbnails[0];
+    $(image).load(function(){
+        $('#imageRow').append($(this));
+        $('#imageContainer').fadeIn(600);
+    })
+}
+var thumbnails=[];
 document.getElementById("db-button").onclick = function () {
 Dropbox.choose({
     linkType: "direct",
@@ -25,10 +36,12 @@ Dropbox.choose({
         var item = files[i];
      jsonLinks.items.push({ 
           "link" : item.link,   });
+    thumbnails[i] = item.thumbnailLink;
     }
     console.log(JSON.stringify(jsonLinks));
     request.send(JSON.stringify(jsonLinks));
     dropboxSucess();
+    getThumbnails();
     }, cancel(){},
     multiselect:true,
     extensions:['video','images'] });

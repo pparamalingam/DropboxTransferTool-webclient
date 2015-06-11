@@ -17,6 +17,10 @@
   p{
     opacity: .65;
   }
+ .progress{
+  height: 10px;
+  margin-top: 40px;
+ }
 
   #db-success-alert{
 
@@ -25,7 +29,10 @@
     display: none;
 
   }
-  
+  #imageContainer{
+    display: none;
+    margin-top: 20px;
+  }
   .btn-lg{
     border-radius:0;
   background-color: #1e88e5;
