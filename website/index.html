@@ -73,16 +73,12 @@
 <script>
 if(typeof(EventSource) !== "undefined") {
     var source = new EventSource("test.php");
-    source.onmessage = function(e) {
-      var newElement = document.createElement("li");
-      
-      newElement.innerHTML = "message: " + e.data;
-      eventList.appendChild(newElement);
-      };
+    source.onmessage = function(event) {
+        document.getElementById("result").innerHTML += event.data + "<br>";
+    };
 } else {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
 }
-
 </script></div>
         </div>
       </div>
