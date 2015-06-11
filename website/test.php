@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set("America/New_York");
-//header("Content-Type: text/event-stream\n\n");
+header("Content-Type: text/html\n\n");
 
 $counter = rand(1, 10);
 while (1) {
