@@ -102,12 +102,10 @@
       <script src="/js/pace.min.js"></script>
     <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="l734mvz3b7jzx8t"></script>
     <script src="js/helper.js"></script>
-    <script>
-if(typeof(EventSource) !== "undefined") {
-$.get( "test.php", function( data ) {
-  document.getElementById("result").innerHTML += data + "<br>";
-});
-
+<script>
+      $.get( "test.php", function( data ) {
+        document.getElementById("result").innerHTML += data + "<br>";
+      });
 </script>
 
 <script type="text/javascript">
