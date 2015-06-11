@@ -68,7 +68,7 @@
       </div>
     	<div class="row">
     		<div class="col-md-6"><h3>Select the Photos from Dropbox to move</h3>
-        <div class="col-md-6"> <div id="result"></div>
+        <div class="col-md-6">
 
 </div>
         </div>
@@ -104,7 +104,7 @@
     <script src="js/helper.js"></script>
 <script>
       $.get( "test.php", function( data ) {
-        document.getElementById("result").innerHTML += data + "<br>";
+        document.getElementById("result").innerHTML += data.value + "<br>";
       });
 </script>
 
@@ -117,5 +117,6 @@
      }
  }
 </script>
+<div id="result"></div>
   </body>
 </html>
