@@ -104,7 +104,7 @@
     <script src="js/helper.js"></script>
     <script>
 if(typeof(EventSource) !== "undefined") {
-    var source = new EventSource("http://samshull.com/server-sent/events.php", { withCredentials: true });
+    var source = new EventSource("test.php");
     source.onmessage = function(event) {
         document.getElementById("result").innerHTML += event.data + "<br>";
     };
